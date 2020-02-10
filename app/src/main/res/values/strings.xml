@@ -3,4 +3,9 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_here">Search Here.....</string>
+    <string name="nodata">No Data</string>
+    <string name="username">Username</string>
+    <string name="date_hint">DD:MM:YYYY</string>
+    <string name="location_hint">2nd Floor, House 12, Road 2/3, Block F, Chairman Bari (Panir Pump - 6)</string>
+    <string name="description_hint">Pathao; is a Bangladeshi on-demand digital platform and transportation network company headquartered in Dhaka, Bangladesh. The company operates in three cities of Bangladesh: Dhaka, Chittagong, Sylhet, and in Kathmandu, Nepal.</string>
 </resources>
