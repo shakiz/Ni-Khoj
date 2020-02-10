@@ -5,7 +5,14 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.shakil.ni_khoj.NewsFeedAdapter;
 import com.shakil.ni_khoj.R;
+import com.shakil.ni_khoj.models.NewFeedModel;
+
 import java.util.ArrayList;
 
 public class UX {
@@ -39,5 +46,12 @@ public class UX {
         arrayAdapter = new ArrayAdapter<>(context, R.layout.spinner_drop,spinnerItemList);
         arrayAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter);
+    }
+
+    public void setNewsFeedAdapter(RecyclerView recyclerView, Context context, ArrayList<NewFeedModel> newFeedLists){
+        NewsFeedAdapter newsFeedAdapter = new NewsFeedAdapter(newFeedLists,context);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setAdapter(newsFeedAdapter);
+        newsFeedAdapter.notifyDataSetChanged();
     }
 }

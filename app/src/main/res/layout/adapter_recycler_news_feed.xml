@@ -31,6 +31,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/UserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
@@ -42,6 +43,7 @@
                 android:text="@string/username"/>
 
             <TextView
+                android:id="@+id/PostDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -52,12 +54,14 @@
                 android:text="@string/date_hint"/>
 
             <ImageView
+                android:id="@+id/imageIcon"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_dummy_image"
                 android:scaleType="fitCenter"/>
             <TextView
+                android:id="@+id/Description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="3"
@@ -69,6 +73,7 @@
                 android:textColor="@color/md_grey_800"/>
 
             <TextView
+                android:id="@+id/Location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
