@@ -25,9 +25,12 @@ public class MainActivity extends AppCompatActivity {
     private String[] screenTitles;
     private Drawable[] screenIcons;
     private RecyclerView list;
-    private static final int POS_PROFILE = 0;
-    private static final int POS_SETTINGS = 1;
-    private static final int POS_LOGOUT = 2;
+    private static final int POS_HOME = 0;
+    private static final int POS_PROFILE = 1;
+    private static final int POS_FOUND = 2;
+    private static final int POS_SETTINGS = 3;
+    private static final int POS_ABOUT = 4;
+    private static final int POS_LOGOUT = 5;
     private Toolbar toolbar;
 
     @Override
@@ -55,8 +58,11 @@ public class MainActivity extends AppCompatActivity {
     private void setAdapter() {
         list = findViewById(R.id.nav_list_item);
         adapter = new DrawerAdapter(Arrays.asList(
-                createItemFor(POS_PROFILE).setChecked(true),
+                createItemFor(POS_HOME).setChecked(true),
+                createItemFor(POS_PROFILE),
+                createItemFor(POS_FOUND),
                 createItemFor(POS_SETTINGS),
+                createItemFor(POS_ABOUT),
                 createItemFor(POS_LOGOUT)));
         list.setNestedScrollingEnabled(false);
         list.setLayoutManager(new LinearLayoutManager(this));
