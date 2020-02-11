@@ -8,10 +8,10 @@ public class NewFeedModel {
     private int imageIcon;
 
     public NewFeedModel(String userName, String PostDate, String location, String description, int imageIcon) {
-        UserName = userName;
-        PostDate = PostDate;
-        Location = location;
-        Description = description;
+        this.UserName = userName;
+        this.PostDate = PostDate;
+        this.Location = location;
+        this.Description = description;
         this.imageIcon = imageIcon;
     }
 
