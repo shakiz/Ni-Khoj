@@ -98,6 +98,99 @@
                 android:textColor="@color/md_grey_800"
                 android:text="@string/location_hint"/>
 
+            <LinearLayout
+                android:layout_below="@id/Location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3"
+                android:padding="4dp"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/likeIcon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_thumb_up_like"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/likeIcon"
+                        android:layout_marginLeft="4dp"
+                        android:text="@string/likes_count"
+                        android:textSize="14sp"
+                        android:layout_weight="1"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/commentsIcon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_comment_black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/commentsIcon"
+                        android:layout_marginLeft="4dp"
+                        android:text="@string/likes_count"
+                        android:textSize="14sp"
+                        android:layout_weight="1"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/shareIcon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_share_black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/shareIcon"
+                        android:layout_marginLeft="4dp"
+                        android:text="@string/share"
+                        android:textSize="14sp"
+                        android:layout_weight="1"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
