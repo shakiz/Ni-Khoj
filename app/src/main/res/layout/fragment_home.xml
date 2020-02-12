@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:background="@color/md_white_1000">
 
-
     <!--Filter layout-->
     <include
         android:id="@+id/filterLayout"

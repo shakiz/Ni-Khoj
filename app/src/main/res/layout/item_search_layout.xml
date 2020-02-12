@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/newPost"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:padding="8dp"
