@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/md_grey_800"
                 android:textStyle="bold"
+                android:padding="4dp"
                 android:textSize="14sp"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="8dp"
@@ -57,6 +58,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                 android:paddingBottom="8dp"
+                android:padding="4dp"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
@@ -67,7 +69,8 @@
                     app:cardCornerRadius="8dp"
                     android:layout_marginRight="4dp"
                     android:elevation="4dp"
-                    android:clickable="true">
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -84,7 +87,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
                     android:elevation="4dp"
-                    android:clickable="true">
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -101,7 +105,8 @@
                     android:elevation="4dp"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
-                    android:clickable="true">
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -117,7 +122,8 @@
                     app:cardCornerRadius="8dp"
                     android:elevation="4dp"
                     android:layout_marginLeft="4dp"
-                    android:clickable="true">
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -128,7 +134,108 @@
 
             </LinearLayout>
 
+             <TextView
+                 android:id="@+id/Location"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textColor="@color/md_grey_800"
+                 android:layout_marginLeft="8dp"
+                 android:layout_marginRight="8dp"
+                 android:layout_marginTop="8dp"
+                 android:textSize="14sp"
+                 android:padding="4dp"
+                 android:drawableLeft="@drawable/ic_location"
+                 android:drawablePadding="4dp"
+                 android:text="@string/tap_here"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
+                android:textSize="14sp"
+                android:textColor="@color/md_grey_800"
+                android:text="@string/refer_a_friend"/>
+
+            <EditText
+                android:id="@+id/ReferredUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/md_grey_800"
+                android:textColorHint="@color/md_grey_800"
+                android:ellipsize="end"
+                android:focusable="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="8dp"
+                android:background="@drawable/rectangle_rounded_background"
+                android:tag="@string/refer_a_friend_hint"
+                android:hint="@string/refer_a_friend_hint"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_gravity="center"
+                android:gravity="center|left"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:textColor="@color/md_grey_800"
+                    android:text="@string/referred_user"/>
+                <ImageView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/ic_user"
+                    android:layout_marginLeft="8dp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/newPost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/transparent_ripple"
+                    android:clickable="true"
+                    android:text="@string/post"
+                    android:textAllCaps="false"
+                    android:textColor="@color/md_grey_800" />
+
+                <ImageView
+                    android:id="@+id/clear"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="8dp"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:src="@drawable/ic_clear" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
