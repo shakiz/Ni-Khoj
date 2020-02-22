@@ -14,16 +14,19 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.shakil.ni_khoj.NewsFeedAdapter;
+import android.widget.TextView;
+import com.shakil.ni_khoj.adapter.LocationListAdapter;
+import com.shakil.ni_khoj.adapter.NewsFeedAdapter;
 import com.shakil.ni_khoj.R;
 import com.shakil.ni_khoj.utils.DataDump;
 
 public class HomeFragment extends Fragment {
     private DataDump dataDump;
-    private RecyclerView recyclerView;
+    private RecyclerView newFeedRecycler , locationListRecycler;
     private ImageView newPost;
-    private Dialog itemDialog;
-    private RelativeLayout dialogLayout;
+    private Dialog addNewPostDialog , locationDialog;
+    private RelativeLayout addNewPostDialogLayout , locationListDialogLayout;
+    private TextView Location;
 
     public HomeFragment() {
     }
@@ -43,7 +46,7 @@ public class HomeFragment extends Fragment {
 
     private void init(View view) {
         dataDump = new DataDump(getContext());
-        recyclerView = view.findViewById(R.id.mRecyclerView);
+        newFeedRecycler = view.findViewById(R.id.mRecyclerView);
         newPost = view.findViewById(R.id.newPost);
     }
 
@@ -60,22 +63,58 @@ public class HomeFragment extends Fragment {
 
     private void setAdapter() {
         NewsFeedAdapter newsFeedAdapter = new NewsFeedAdapter(dataDump.dumpNewsFeedData(), getContext());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(newsFeedAdapter);
+        newFeedRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        newFeedRecycler.setAdapter(newsFeedAdapter);
         newsFeedAdapter.notifyDataSetChanged();
     }
 
     private void showDialog() {
-        itemDialog = new Dialog(getContext());
-        itemDialog.setContentView(R.layout.dialog_popup_new_post);
-        customViewInit(itemDialog);
-        itemDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        Animation a = AnimationUtils.loadAnimation(itemDialog.getContext(), R.anim.push_up_in);
-        dialogLayout.startAnimation(a);
-        itemDialog.show();
+        addNewPostDialog = new Dialog(getContext());
+        addNewPostDialog.setContentView(R.layout.dialog_popup_new_post);
+        customViewInit(addNewPostDialog);
+        addNewPostDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Animation a = AnimationUtils.loadAnimation(addNewPostDialog.getContext(), R.anim.push_up_in);
+        addNewPostDialogLayout.startAnimation(a);
+        addNewPostDialog.show();
     }
 
     private void customViewInit(Dialog itemDialog) {
-        dialogLayout = itemDialog.findViewById(R.id.dialogLayout);
+        addNewPostDialogLayout = itemDialog.findViewById(R.id.dialogLayout);
+        Location = itemDialog.findViewById(R.id.Location);
+
+        bindUiWithItemDialog();
+    }
+
+    private void bindUiWithItemDialog() {
+        Location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getLocationDialog();
+            }
+        });
+    }
+
+    private void getLocationDialog() {
+        locationDialog = new Dialog(getContext());
+        locationDialog.setContentView(R.layout.dialog_pop_location_list);
+        customInitLocationDialog(locationDialog);
+        addNewPostDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Animation a = AnimationUtils.loadAnimation(locationDialog.getContext(), R.anim.push_up_in);
+        locationListDialogLayout.startAnimation(a);
+        locationDialog.show();
+    }
+
+    private void customInitLocationDialog(Dialog locationDialog) {
+        locationListDialogLayout = locationDialog.findViewById(R.id.locationDialogLayout);
+        locationListRecycler = locationDialog.findViewById(R.id.LocationRecyclerView);
+
+        bindUiWithLocationListDialog();
+    }
+
+    private void bindUiWithLocationListDialog() {
+        LocationListAdapter locationListAdapter = new LocationListAdapter(null,getContext());
+        locationListRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        locationListRecycler.setAdapter(locationListAdapter);
+        locationListAdapter.notifyDataSetChanged();
     }
 }

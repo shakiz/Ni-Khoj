@@ -195,9 +195,10 @@
                     android:textColor="@color/md_grey_800"
                     android:text="@string/referred_user"/>
                 <ImageView
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/ic_user"
+                    android:padding="4dp"
                     android:layout_marginLeft="8dp"
                     android:layout_gravity="center"/>
 

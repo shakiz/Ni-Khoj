@@ -1,4 +1,4 @@
-package com.shakil.ni_khoj;
+package com.shakil.ni_khoj.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.shakil.ni_khoj.models.NewFeedModel;
+
+import com.shakil.ni_khoj.R;
+import com.shakil.ni_khoj.models.newsfeed.NewFeedModel;
 import java.util.ArrayList;
 
 public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHolder> {

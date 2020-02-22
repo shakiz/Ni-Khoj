@@ -26,11 +26,7 @@
         android:clickable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:elevation="12dp"
-        app:cardBackgroundColor="@color/md_white_1000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:cardBackgroundColor="@color/md_white_1000">
 
         <RelativeLayout
             android:layout_width="match_parent"

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/locationDialogLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true"
+        android:elevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/LocationName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/md_grey_800"
+                android:textColorHint="@color/md_grey_800"
+                android:ellipsize="end"
+                android:focusable="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="8dp"
+                android:background="@drawable/rectangle_rounded_background"
+                android:tag="@string/location_name_hint"
+                android:hint="@string/location_name_hint"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/NoDataMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text="@string/nodata"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/md_red_400"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/LocationRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/adapter_recycler_location_list"
+                    android:layout_margin="8dp"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

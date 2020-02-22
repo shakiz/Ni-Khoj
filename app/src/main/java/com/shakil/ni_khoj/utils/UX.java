@@ -9,9 +9,9 @@ import android.widget.Spinner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.shakil.ni_khoj.NewsFeedAdapter;
+import com.shakil.ni_khoj.adapter.NewsFeedAdapter;
 import com.shakil.ni_khoj.R;
-import com.shakil.ni_khoj.models.NewFeedModel;
+import com.shakil.ni_khoj.models.newsfeed.NewFeedModel;
 
 import java.util.ArrayList;
 

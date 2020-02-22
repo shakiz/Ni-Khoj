@@ -26,4 +26,8 @@
     <string name="refer_a_friend_hint">Enter user mail</string>
     <string name="referred_user">Referred user</string>
     <string name="post">Post</string>
+    <string name="location_name_hint">Enter location name</string>
+    <string name="location_name">Location name</string>
+    <string name="address">Address</string>
+    <string name="distance_in_miles">2.8 Miles</string>
 </resources>

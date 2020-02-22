@@ -2,7 +2,7 @@ package com.shakil.ni_khoj.utils;
 
 import android.content.Context;
 import com.shakil.ni_khoj.R;
-import com.shakil.ni_khoj.models.NewFeedModel;
+import com.shakil.ni_khoj.models.newsfeed.NewFeedModel;
 import java.util.ArrayList;
 
 public class DataDump {

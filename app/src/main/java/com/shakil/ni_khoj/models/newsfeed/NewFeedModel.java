@@ -1,4 +1,4 @@
-package com.shakil.ni_khoj.models;
+package com.shakil.ni_khoj.models.newsfeed;
 
 public class NewFeedModel {
     private String UserName;
