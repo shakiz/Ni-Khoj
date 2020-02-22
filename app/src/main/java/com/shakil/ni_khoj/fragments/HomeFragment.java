@@ -18,7 +18,9 @@ import android.widget.TextView;
 import com.shakil.ni_khoj.adapter.LocationListAdapter;
 import com.shakil.ni_khoj.adapter.NewsFeedAdapter;
 import com.shakil.ni_khoj.R;
+import com.shakil.ni_khoj.models.location.LocationMaster;
 import com.shakil.ni_khoj.utils.DataDump;
+import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
     private DataDump dataDump;
@@ -27,6 +29,7 @@ public class HomeFragment extends Fragment {
     private Dialog addNewPostDialog , locationDialog;
     private RelativeLayout addNewPostDialogLayout , locationListDialogLayout;
     private TextView Location;
+    private ArrayList<LocationMaster> locationList;
 
     public HomeFragment() {
     }
@@ -71,6 +74,7 @@ public class HomeFragment extends Fragment {
     private void showDialog() {
         addNewPostDialog = new Dialog(getContext());
         addNewPostDialog.setContentView(R.layout.dialog_popup_new_post);
+        addNewPostDialog.setCanceledOnTouchOutside(false);
         customViewInit(addNewPostDialog);
         addNewPostDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         Animation a = AnimationUtils.loadAnimation(addNewPostDialog.getContext(), R.anim.push_up_in);
@@ -97,6 +101,7 @@ public class HomeFragment extends Fragment {
     private void getLocationDialog() {
         locationDialog = new Dialog(getContext());
         locationDialog.setContentView(R.layout.dialog_pop_location_list);
+        locationDialog.setCanceledOnTouchOutside(false);
         customInitLocationDialog(locationDialog);
         addNewPostDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         Animation a = AnimationUtils.loadAnimation(locationDialog.getContext(), R.anim.push_up_in);
@@ -107,12 +112,30 @@ public class HomeFragment extends Fragment {
     private void customInitLocationDialog(Dialog locationDialog) {
         locationListDialogLayout = locationDialog.findViewById(R.id.locationDialogLayout);
         locationListRecycler = locationDialog.findViewById(R.id.LocationRecyclerView);
+        locationList = new ArrayList<>();
 
         bindUiWithLocationListDialog();
     }
 
     private void bindUiWithLocationListDialog() {
-        LocationListAdapter locationListAdapter = new LocationListAdapter(null,getContext());
+        dataDump.location(new DataDump.onLocationComplete() {
+            @Override
+            public void onComplete() {
+                locationList = dataDump.getLocationList();
+                setLocationAdapter();
+            }
+        });
+
+    }
+
+    private void setLocationAdapter() {
+        LocationListAdapter locationListAdapter = new LocationListAdapter(dataDump.getLocationList(), getContext(), new LocationListAdapter.onItemClickListener() {
+            @Override
+            public void onItemClick(LocationMaster locationMaster) {
+                locationDialog.dismiss();
+                Location.setText(locationMaster.getResult().getName());
+            }
+        });
         locationListRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         locationListRecycler.setAdapter(locationListAdapter);
         locationListAdapter.notifyDataSetChanged();

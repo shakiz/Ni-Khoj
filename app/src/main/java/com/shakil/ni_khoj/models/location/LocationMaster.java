@@ -17,6 +17,10 @@ public class LocationMaster {
     @JsonProperty("status")
     private String status;
 
+    public LocationMaster(Result result) {
+        this.result = result;
+    }
+
     @JsonProperty("result")
     public Result getResult() {
         return result;

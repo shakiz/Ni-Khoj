@@ -29,15 +29,15 @@
 
             <ImageView
                 android:id="@+id/itemIcon"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:padding="4dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_location"/>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1.4"
+                android:layout_weight="1.5"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center|left"
@@ -50,6 +50,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/location_name"
                     android:textSize="14sp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:textColor="@color/md_grey_800"/>
 
                 <TextView
@@ -59,6 +61,8 @@
                     android:text="@string/address"
                     android:textSize="14sp"
                     android:textColor="@color/md_grey_800"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:layout_marginTop="4dp"/>
 
             </LinearLayout>
@@ -66,7 +70,7 @@
             <TextView
                 android:id="@+id/Distance"
                 android:layout_width="0dp"
-                android:layout_weight=".6"
+                android:layout_weight=".5"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:text="@string/distance_in_miles"

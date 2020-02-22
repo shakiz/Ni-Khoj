@@ -53,6 +53,11 @@ public class Result {
     @JsonProperty("website")
     private String website;
 
+    public Result(String formattedAddress, String name) {
+        this.formattedAddress = formattedAddress;
+        this.name = name;
+    }
+
     @JsonProperty("adr_address")
     public String getAdrAddress() {
         return adrAddress;
