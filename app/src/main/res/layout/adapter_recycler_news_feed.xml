@@ -61,17 +61,16 @@
             <ImageView
                 android:layout_below="@id/PostDate"
                 android:id="@+id/imageIcon"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:layout_gravity="center|left"
-                android:background="@drawable/ic_dummy_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/ic_picture_placeholder"
                 android:scaleType="fitXY"/>
             <TextView
                 android:layout_below="@id/imageIcon"
                 android:id="@+id/Description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="3"
+                android:maxLines="2"
                 android:ellipsize="end"
                 android:drawableLeft="@drawable/ic_description"
                 android:drawablePadding="4dp"
@@ -99,7 +98,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="3"
-                android:padding="4dp"
                 android:layout_marginTop="4dp"
                 android:gravity="center"
                 android:orientation="horizontal">

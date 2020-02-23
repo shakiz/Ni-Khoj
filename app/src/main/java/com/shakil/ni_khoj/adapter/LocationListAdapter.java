@@ -34,7 +34,7 @@ public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapte
         final LocationMaster locationMaster = locationList.get(position);
         holder.LocationName.setText(locationMaster.getResult().getName());
         holder.Address.setText(locationMaster.getResult().getFormattedAddress());
-        holder.Distance.setText("Dummy");
+        holder.Distance.setText("2.8 Miles");
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import com.shakil.ni_khoj.adapter.LocationListAdapter;
 import com.shakil.ni_khoj.adapter.NewsFeedAdapter;
 import com.shakil.ni_khoj.R;
 import com.shakil.ni_khoj.models.location.LocationMaster;
+import com.shakil.ni_khoj.models.newsfeed.NewFeedModel;
 import com.shakil.ni_khoj.utils.DataDump;
 import java.util.ArrayList;
 
@@ -30,6 +32,8 @@ public class HomeFragment extends Fragment {
     private RelativeLayout addNewPostDialogLayout , locationListDialogLayout;
     private TextView Location;
     private ArrayList<LocationMaster> locationList;
+    private ArrayList<NewFeedModel> newsFeedList;
+    private Button savePost;
 
     public HomeFragment() {
     }
@@ -54,7 +58,13 @@ public class HomeFragment extends Fragment {
     }
 
     private void bindUiWithComponents() {
-        setAdapter();
+        dataDump.newsFeed(new DataDump.onNewFeedComplete() {
+            @Override
+            public void onComplete() {
+                newsFeedList = dataDump.getNewsFeedList();
+                setNewsFeedAdapter();
+            }
+        });
 
         newPost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,8 +74,8 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void setAdapter() {
-        NewsFeedAdapter newsFeedAdapter = new NewsFeedAdapter(dataDump.dumpNewsFeedData(), getContext());
+    private void setNewsFeedAdapter() {
+        NewsFeedAdapter newsFeedAdapter = new NewsFeedAdapter(newsFeedList, getContext());
         newFeedRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         newFeedRecycler.setAdapter(newsFeedAdapter);
         newsFeedAdapter.notifyDataSetChanged();
@@ -85,6 +95,7 @@ public class HomeFragment extends Fragment {
     private void customViewInit(Dialog itemDialog) {
         addNewPostDialogLayout = itemDialog.findViewById(R.id.dialogLayout);
         Location = itemDialog.findViewById(R.id.Location);
+        savePost = itemDialog.findViewById(R.id.savePost);
 
         bindUiWithItemDialog();
     }
@@ -94,6 +105,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getLocationDialog();
+            }
+        });
+
+        savePost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addNewPostDialog.dismiss();
             }
         });
     }
@@ -129,7 +147,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void setLocationAdapter() {
-        LocationListAdapter locationListAdapter = new LocationListAdapter(dataDump.getLocationList(), getContext(), new LocationListAdapter.onItemClickListener() {
+        LocationListAdapter locationListAdapter = new LocationListAdapter(locationList, getContext(), new LocationListAdapter.onItemClickListener() {
             @Override
             public void onItemClick(LocationMaster locationMaster) {
                 locationDialog.dismiss();

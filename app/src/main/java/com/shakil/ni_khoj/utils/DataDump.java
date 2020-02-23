@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class DataDump {
     private Context context;
     private ArrayList<LocationMaster> locationList;
+    private ArrayList<NewFeedModel> newsFeedList;
     private UX ux;
 
     public DataDump(Context context) {
@@ -19,7 +20,40 @@ public class DataDump {
         locationList = new ArrayList<>();
     }
 
-    public ArrayList<NewFeedModel> dumpNewsFeedData(){
+    private onNewFeedComplete onNewFeedComplete;
+
+    public interface onNewFeedComplete{
+        void onComplete();
+    }
+
+    public void newsFeed(onNewFeedComplete onNewFeedComplete){
+        this.onNewFeedComplete = onNewFeedComplete;
+        new BackgroundNewsFeed().execute();
+    }
+
+    private class BackgroundNewsFeed extends AsyncTask<String ,Void, ArrayList<NewFeedModel>>{
+
+        @Override
+        protected void onPreExecute() {
+            ux.getLoadingView();
+        }
+
+        @Override
+        protected ArrayList<NewFeedModel> doInBackground(String... strings) {
+            return newsFeedData();
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<NewFeedModel> newFeedModels) {
+            if(onNewFeedComplete != null) {
+                setNewsFeedList(newsFeedData());
+                onNewFeedComplete.onComplete();
+                ux.removeLoadingView();
+            }
+        }
+    }
+
+    public ArrayList<NewFeedModel> newsFeedData(){
 
         ArrayList<NewFeedModel> newFeedLists = new ArrayList<>();
         newFeedLists.add(new NewFeedModel("Sakhawat Hossain","20-Feb-2019","Dhaka,Bangladesh",
@@ -87,5 +121,13 @@ public class DataDump {
 
     public ArrayList<LocationMaster> getLocationList() {
         return locationList;
+    }
+
+    public void setNewsFeedList(ArrayList<NewFeedModel> newsFeedList) {
+        this.newsFeedList = newsFeedList;
+    }
+
+    public ArrayList<NewFeedModel> getNewsFeedList() {
+        return newsFeedList ;
     }
 }

@@ -216,21 +216,23 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/newPost"
+                    android:id="@+id/savePost"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="4dp"
                     android:background="@drawable/transparent_ripple"
                     android:clickable="true"
+                    android:textStyle="bold"
                     android:text="@string/post"
                     android:textAllCaps="false"
                     android:textColor="@color/md_grey_800" />
 
                 <ImageView
                     android:id="@+id/clear"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:padding="4dp"
                     android:layout_marginLeft="8dp"
                     android:foreground="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
